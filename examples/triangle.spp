@@ -1,0 +1,83 @@
+;;; Triangle classifier - reads three numbers and outputs triangle type
+;;; Valid triangle: "3" for equilateral, "2" for isosceles, "1" for scalene
+;;; Invalid triangle: "?"
+
+;;; Variables used (requires a CPP-like preprocessor to run):
+#define side1 0d
+#define side2 1d
+#define side3 2d
+
+_start:
+    ;; Read three side lengths
+    jsr .read_uint8      ; Read first side into A
+    sta [side1]          ; Store first side
+    jsr .read_uint8      ; Read second side into A
+    sta [side2]          ; Store second side
+    jsr .read_uint8      ; Read third side into A
+    sta [side3]          ; Store third side
+
+    ;; Check triangle validity: a < b+c, b < a+c, c < a+b
+    lda [side1]
+    clc
+    adc [side2]          ; A = side1 + side2
+    cmp [side3]          ; Compare with side3
+    bcs .invalid         ; If side1+side2 <= side3, invalid
+    
+    lda [side1]
+    clc
+    adc [side3]          ; A = side1 + side3
+    cmp [side2]          ; Compare with side2
+    bcs .invalid         ; If side1+side3 <= side2, invalid
+    
+    lda [side2]
+    clc
+    adc [side3]          ; A = side2 + side3
+    cmp [side1]          ; Compare with side1
+    bcs .invalid         ; If side2+side3 <= side1, invalid
+
+    ;; Triangle is valid, now classify
+    lda [side1]
+    cmp [side2]          ; Compare side1 with side2
+    beq .sides1_equal    ; If equal, check third side
+    bne .sides1_not_equal
+
+.sides1_equal:
+    lda [side1]
+    cmp [side3]          ; Compare side1 with side3
+    beq .equilateral     ; If equal, all three sides equal
+    bne .isosceles       ; If not equal, exactly two sides equal (side1=side2!=side3)
+
+.sides1_not_equal:
+    lda [side1]
+    cmp [side3]          ; Compare side1 with side3
+    beq .isosceles       ; If equal, exactly two sides equal (side1=side3!=side2)
+    bne .check_sides2_3  ; Check if side2 equals side3
+
+.check_sides2_3:
+    lda [side2]
+    cmp [side3]          ; Compare side2 with side3
+    beq .isosceles       ; If equal, exactly two sides equal (side2=side3!=side1)
+    bne .scalene         ; No sides equal
+
+.equilateral:
+    lda 3d
+    jsr .write_uint8
+    jmp .done
+
+.isosceles:
+    lda 2d
+    jsr .write_uint8
+    jmp .done
+
+.scalene:
+    lda 1d
+    jsr .write_uint8
+    jmp .done
+
+.invalid:
+    lda 3Fh             ; ASCII for '?'
+    jsr .write_byte
+    jmp .done
+
+.done:
+    ; Program ends automatically
