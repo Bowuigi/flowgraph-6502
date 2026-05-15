@@ -1,7 +1,7 @@
 {
-  "name": "flowgraph-simple-6502",
+  "name": "flowgraph-6502",
   "version": "0.1.0",
-  "description": "Generate a flowgraph for a subset of 6502 assembly",
+  "description": "Generate a flowgraph or interpret a subset of 6502 assembly",
   "license": "BSD-3-Clause",
   "author": "Bowuigi",
   "type": "esm",
