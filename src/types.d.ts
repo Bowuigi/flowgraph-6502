@@ -36,6 +36,8 @@ export interface CPUState {
   memory: Uint8Array;
   /** Fake memory location markers; this is not handled like in a normal assembler */
   labels: Record<string, number>;
+  /** `true` if stdin has been fully read */
+  input_exhausted: boolean;
 }
 
 export interface Registers {
