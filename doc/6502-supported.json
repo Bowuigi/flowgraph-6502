@@ -2,120 +2,56 @@
   {
     "mnemonic": "ADC",
     "name": "Add with Carry",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "overflow",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X",
-      "Absolute,Y",
-      "(Indirect,X)",
-      "(Indirect),Y"
-    ],
+    "affected_flags": ["carry", "zero", "overflow", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "This instruction adds the contents of a memory location to the accumulator together with the carry bit. If overflow occurs the carry bit is set, this enables multiple byte addition to be performed.",
-    "related_instructions": [
-      "SBC"
-    ]
+    "related_instructions": ["SBC"]
   },
   {
     "mnemonic": "AND",
     "name": "Logical AND",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X",
-      "Absolute,Y",
-      "(Indirect,X)",
-      "(Indirect),Y"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "A logical AND is performed, bit by bit, on the accumulator contents using the contents of a byte of memory.",
-    "related_instructions": [
-      "EOR",
-      "ORA"
-    ]
+    "related_instructions": ["EOR", "ORA"]
   },
   {
     "mnemonic": "ASL",
     "name": "Arithmetic Shift Left",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Accumulator",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X"
-    ],
+    "affected_flags": ["carry", "zero", "negative"],
+    "addressing_modes": ["Accumulator", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
     "description": "This operation shifts all the bits of the accumulator or memory contents one bit left. Bit 0 is set to 0 and bit 7 is placed in the carry flag. The effect of this operation is to multiply the memory contents by 2.",
-    "related_instructions": [
-      "LSR",
-      "ROL",
-      "ROR"
-    ]
+    "related_instructions": ["LSR", "ROL", "ROR"]
   },
   {
     "mnemonic": "BCC",
     "name": "Branch if Carry Clear",
     "affected_flags": [],
-    "addressing_modes": [
-      "Relative"
-    ],
+    "addressing_modes": ["Relative"],
     "description": "If the carry flag is clear then add the relative displacement to the program counter to cause a branch to a new location.",
-    "related_instructions": [
-      "BCS"
-    ]
+    "related_instructions": ["BCS"]
   },
   {
     "mnemonic": "BCS",
     "name": "Branch if Carry Set",
     "affected_flags": [],
-    "addressing_modes": [
-      "Relative"
-    ],
+    "addressing_modes": ["Relative"],
     "description": "If the carry flag is set then add the relative displacement to the program counter to cause a branch to a new location.",
-    "related_instructions": [
-      "BCC"
-    ]
+    "related_instructions": ["BCC"]
   },
   {
     "mnemonic": "BEQ",
     "name": "Branch if Equal",
     "affected_flags": [],
-    "addressing_modes": [
-      "Relative"
-    ],
+    "addressing_modes": ["Relative"],
     "description": "If the zero flag is set then add the relative displacement to the program counter to cause a branch to a new location.",
-    "related_instructions": [
-      "BNE"
-    ]
+    "related_instructions": ["BNE"]
   },
   {
     "mnemonic": "BIT",
     "name": "Bit Test",
-    "affected_flags": [
-      "zero",
-      "overflow",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Zero Page",
-      "Absolute"
-    ],
+    "affected_flags": ["zero", "overflow", "negative"],
+    "addressing_modes": ["Zero Page", "Absolute"],
     "description": "This instructions is used to test if one or more bits are set in a target memory location. The mask pattern in A is ANDed with the value in memory to set or clear the zero flag, but the result is not kept. Bits 7 and 6 of the value from memory are copied into the N and V flags.",
     "related_instructions": []
   },
@@ -123,283 +59,143 @@
     "mnemonic": "BMI",
     "name": "Branch if Minus",
     "affected_flags": [],
-    "addressing_modes": [
-      "Relative"
-    ],
+    "addressing_modes": ["Relative"],
     "description": "If the negative flag is set then add the relative displacement to the program counter to cause a branch to a new location.",
-    "related_instructions": [
-      "BPL"
-    ]
+    "related_instructions": ["BPL"]
   },
   {
     "mnemonic": "BNE",
     "name": "Branch if Not Equal",
     "affected_flags": [],
-    "addressing_modes": [
-      "Relative"
-    ],
+    "addressing_modes": ["Relative"],
     "description": "If the zero flag is clear then add the relative displacement to the program counter to cause a branch to a new location.",
-    "related_instructions": [
-      "BEQ"
-    ]
+    "related_instructions": ["BEQ"]
   },
   {
     "mnemonic": "BPL",
     "name": "Branch if Plus",
     "affected_flags": [],
-    "addressing_modes": [
-      "Relative"
-    ],
+    "addressing_modes": ["Relative"],
     "description": "If the negative flag is clear then add the relative displacement to the program counter to cause a branch to a new location.",
-    "related_instructions": [
-      "BMI"
-    ]
+    "related_instructions": ["BMI"]
   },
   {
     "mnemonic": "BVC",
     "name": "Branch if Overflow Clear",
     "affected_flags": [],
-    "addressing_modes": [
-      "Relative"
-    ],
+    "addressing_modes": ["Relative"],
     "description": "If the overflow flag is clear then add the relative displacement to the program counter to cause a branch to a new location.",
-    "related_instructions": [
-      "BVS"
-    ]
+    "related_instructions": ["BVS"]
   },
   {
     "mnemonic": "BVS",
     "name": "Branch if Overflow Set",
     "affected_flags": [],
-    "addressing_modes": [
-      "Relative"
-    ],
+    "addressing_modes": ["Relative"],
     "description": "If the overflow flag is set then add the relative displacement to the program counter to cause a branch to a new location.",
-    "related_instructions": [
-      "BVC"
-    ]
+    "related_instructions": ["BVC"]
   },
   {
     "mnemonic": "CLC",
     "name": "Clear Carry Flag",
-    "affected_flags": [
-      "carry"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["carry"],
+    "addressing_modes": ["Implied"],
     "description": "Set the carry flag to zero.",
-    "related_instructions": [
-      "SEC"
-    ]
+    "related_instructions": ["SEC"]
   },
   {
     "mnemonic": "CLV",
     "name": "Clear Overflow Flag",
-    "affected_flags": [
-      "overflow"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["overflow"],
+    "addressing_modes": ["Implied"],
     "description": "Clears the overflow flag.",
     "related_instructions": []
   },
   {
     "mnemonic": "CMP",
     "name": "Compare",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X",
-      "Absolute,Y",
-      "(Indirect,X)",
-      "(Indirect),Y"
-    ],
+    "affected_flags": ["carry", "zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "This instruction compares the contents of the accumulator with another memory held value and sets the zero and carry flags as appropriate.",
-    "related_instructions": [
-      "CPX",
-      "CPY"
-    ]
+    "related_instructions": ["CPX", "CPY"]
   },
   {
     "mnemonic": "CPX",
     "name": "Compare X Register",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Absolute"
-    ],
+    "affected_flags": ["carry", "zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "This instruction compares the contents of the X register with another memory held value and sets the zero and carry flags as appropriate.",
-    "related_instructions": [
-      "CMP",
-      "CPY"
-    ]
+    "related_instructions": ["CMP", "CPY"]
   },
   {
     "mnemonic": "CPY",
     "name": "Compare Y Register",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Absolute"
-    ],
+    "affected_flags": ["carry", "zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "This instruction compares the contents of the Y register with another memory held value and sets the zero and carry flags as appropriate.",
-    "related_instructions": [
-      "CMP",
-      "CPX"
-    ]
+    "related_instructions": ["CMP", "CPX"]
   },
   {
     "mnemonic": "DEC",
     "name": "Decrement Memory",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
     "description": "Subtracts one from the value held at a specified memory location setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "DEX",
-      "DEY"
-    ]
+    "related_instructions": ["DEX", "DEY"]
   },
   {
     "mnemonic": "DEX",
     "name": "Decrement X Register",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Implied"],
     "description": "Subtracts one from the X register setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "DEC",
-      "DEY"
-    ]
+    "related_instructions": ["DEC", "DEY"]
   },
   {
     "mnemonic": "DEY",
     "name": "Decrement Y Register",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Implied"],
     "description": "Subtracts one from the Y register setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "DEC",
-      "DEX"
-    ]
+    "related_instructions": ["DEC", "DEX"]
   },
   {
     "mnemonic": "EOR",
     "name": "Exclusive OR",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X",
-      "Absolute,Y",
-      "(Indirect,X)",
-      "(Indirect),Y"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "An exclusive OR is performed, bit by bit, on the accumulator contents using the contents of a byte of memory.",
-    "related_instructions": [
-      "AND",
-      "ORA"
-    ]
+    "related_instructions": ["AND", "ORA"]
   },
   {
     "mnemonic": "INC",
     "name": "Increment Memory",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
     "description": "Adds one to the value held at a specified memory location setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "INX",
-      "INY"
-    ]
+    "related_instructions": ["INX", "INY"]
   },
   {
     "mnemonic": "INX",
     "name": "Increment X Register",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Implied"],
     "description": "Adds one to the X register setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "INC",
-      "INY"
-    ]
+    "related_instructions": ["INC", "INY"]
   },
   {
     "mnemonic": "INY",
     "name": "Increment Y Register",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Implied"],
     "description": "Adds one to the Y register setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "INC",
-      "INX"
-    ]
+    "related_instructions": ["INC", "INX"]
   },
   {
     "mnemonic": "JMP",
     "name": "Jump",
     "affected_flags": [],
-    "addressing_modes": [
-      "Absolute",
-      "Indirect"
-    ],
+    "addressing_modes": ["Absolute"],
     "description": "Sets the program counter to the address specified by the operand.",
     "related_instructions": []
   },
@@ -407,335 +203,144 @@
     "mnemonic": "JSR",
     "name": "Jump to Subroutine",
     "affected_flags": [],
-    "addressing_modes": [
-      "Absolute"
-    ],
+    "addressing_modes": ["Absolute"],
     "description": "The JSR instruction is used to invoke primitive operations, and cannot be used to call user-defined functions.",
     "related_instructions": []
   },
   {
     "mnemonic": "LDA",
     "name": "Load Accumulator",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X",
-      "Absolute,Y",
-      "(Indirect,X)",
-      "(Indirect),Y"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "Loads a byte of memory into the accumulator setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "LDX",
-      "LDY"
-    ]
+    "related_instructions": ["LDX", "LDY"]
   },
   {
     "mnemonic": "LDX",
     "name": "Load X Register",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,Y",
-      "Absolute",
-      "Absolute,Y"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "Loads a byte of memory into the X register setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "LDA",
-      "LDY"
-    ]
+    "related_instructions": ["LDA", "LDY"]
   },
   {
     "mnemonic": "LDY",
     "name": "Load Y Register",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "Loads a byte of memory into the Y register setting the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "LDA",
-      "LDX"
-    ]
+    "related_instructions": ["LDA", "LDX"]
   },
   {
     "mnemonic": "LSR",
     "name": "Logical Shift Right",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Accumulator",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X"
-    ],
+    "affected_flags": ["carry", "zero", "negative"],
+    "addressing_modes": ["Accumulator", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
     "description": "Each of the bits in register A or M is shifted one place to the right. The bit that was in bit 0 is moved into the carry flag. Bit 7 is set to zero.",
-    "related_instructions": [
-      "ASL",
-      "ROL",
-      "ROR"
-    ]
+    "related_instructions": ["ASL", "ROL", "ROR"]
   },
   {
     "mnemonic": "NOP",
     "name": "No Operation",
     "affected_flags": [],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "addressing_modes": ["Implied"],
     "description": "The NOP instruction causes no changes to the processor other than the normal incrementing of the program counter to the next instruction.",
     "related_instructions": []
   },
   {
     "mnemonic": "ORA",
     "name": "Logical Inclusive OR",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X",
-      "Absolute,Y",
-      "(Indirect,X)",
-      "(Indirect),Y"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "An inclusive OR is performed, bit by bit, on the accumulator contents using the contents of a byte of memory.",
-    "related_instructions": [
-      "AND",
-      "EOR"
-    ]
+    "related_instructions": ["AND", "EOR"]
   },
   {
     "mnemonic": "ROL",
     "name": "Rotate Left",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Accumulator",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X"
-    ],
+    "affected_flags": ["carry", "zero", "negative"],
+    "addressing_modes": ["Accumulator", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
     "description": "Move each of the bits in either A or M one place to the left. Bit 0 is filled with the current value of the carry flag whilst the old bit 7 becomes the new carry flag value.",
-    "related_instructions": [
-      "ASL",
-      "LSR",
-      "ROR"
-    ]
+    "related_instructions": ["ASL", "LSR", "ROR"]
   },
   {
     "mnemonic": "ROR",
     "name": "Rotate Right",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Accumulator",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X"
-    ],
+    "affected_flags": ["carry", "zero", "negative"],
+    "addressing_modes": ["Accumulator", "Zero Page", "Zero Page,X", "Absolute", "Absolute,X"],
     "description": "Move each of the bits in either A or M one place to the right. Bit 7 is filled with the current value of the carry flag whilst the old bit 0 becomes the new carry flag value.",
-    "related_instructions": [
-      "ASL",
-      "LSR",
-      "ROL"
-    ]
+    "related_instructions": ["ASL", "LSR", "ROL"]
   },
   {
     "mnemonic": "SBC",
     "name": "Subtract with Carry",
-    "affected_flags": [
-      "carry",
-      "zero",
-      "overflow",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Immediate",
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X",
-      "Absolute,Y",
-      "(Indirect,X)",
-      "(Indirect),Y"
-    ],
+    "affected_flags": ["carry", "zero", "overflow", "negative"],
+    "addressing_modes": ["Immediate", "Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y", "Accumulator"],
     "description": "This instruction subtracts the contents of a memory location to the accumulator together with the not of the carry bit. If overflow occurs the carry bit is clear, this enables multiple byte subtraction to be performed.",
-    "related_instructions": [
-      "ADC"
-    ]
+    "related_instructions": ["ADC"]
   },
   {
     "mnemonic": "SEC",
     "name": "Set Carry Flag",
-    "affected_flags": [
-      "carry"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["carry"],
+    "addressing_modes": ["Implied"],
     "description": "Set the carry flag to one.",
-    "related_instructions": [
-      "CLC"
-    ]
+    "related_instructions": ["CLC"]
   },
   {
     "mnemonic": "STA",
     "name": "Store Accumulator",
     "affected_flags": [],
-    "addressing_modes": [
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute",
-      "Absolute,X",
-      "Absolute,Y",
-      "(Indirect,X)",
-      "(Indirect),Y"
-    ],
+    "addressing_modes": ["Zero Page", "Zero Page,X", "Zero Page,Y", "Absolute", "Absolute,X", "Absolute,Y"],
     "description": "Stores the contents of the accumulator into memory.",
-    "related_instructions": [
-      "STX",
-      "STY"
-    ]
+    "related_instructions": ["STX", "STY"]
   },
   {
     "mnemonic": "STX",
     "name": "Store X Register",
     "affected_flags": [],
-    "addressing_modes": [
-      "Zero Page",
-      "Zero Page,Y",
-      "Absolute"
-    ],
+    "addressing_modes": ["Zero Page", "Zero Page,Y", "Absolute"],
     "description": "Stores the contents of the X register into memory.",
-    "related_instructions": [
-      "STA",
-      "STY"
-    ]
+    "related_instructions": ["STA", "STY"]
   },
   {
     "mnemonic": "STY",
     "name": "Store Y Register",
     "affected_flags": [],
-    "addressing_modes": [
-      "Zero Page",
-      "Zero Page,X",
-      "Absolute"
-    ],
+    "addressing_modes": ["Zero Page", "Zero Page,X", "Absolute"],
     "description": "Stores the contents of the Y register into memory.",
-    "related_instructions": [
-      "STA",
-      "STX"
-    ]
+    "related_instructions": ["STA", "STX"]
   },
   {
     "mnemonic": "TAX",
     "name": "Transfer Accumulator to X",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Implied"],
     "description": "Copies the current contents of the accumulator into the X register and sets the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "TAY",
-      "TSX",
-      "TXA",
-      "TXS",
-      "TYA"
-    ]
+    "related_instructions": ["TAY", "TSX", "TXA", "TXS", "TYA"]
   },
   {
     "mnemonic": "TAY",
     "name": "Transfer Accumulator to Y",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Implied"],
     "description": "Copies the current contents of the accumulator into the Y register and sets the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "TAX",
-      "TSX",
-      "TXA",
-      "TXS",
-      "TYA"
-    ]
+    "related_instructions": ["TAX", "TSX", "TXA", "TXS", "TYA"]
   },
   {
     "mnemonic": "TXA",
     "name": "Transfer X to Accumulator",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Implied"],
     "description": "Copies the current contents of the X register into the accumulator and sets the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "TAX",
-      "TAY",
-      "TSX",
-      "TXS",
-      "TYA"
-    ]
+    "related_instructions": ["TAX", "TAY", "TSX", "TXS", "TYA"]
   },
   {
     "mnemonic": "TYA",
     "name": "Transfer Y to Accumulator",
-    "affected_flags": [
-      "zero",
-      "negative"
-    ],
-    "addressing_modes": [
-      "Implied"
-    ],
+    "affected_flags": ["zero", "negative"],
+    "addressing_modes": ["Implied"],
     "description": "Copies the current contents of the Y register into the accumulator and sets the zero and negative flags as appropriate.",
-    "related_instructions": [
-      "TAX",
-      "TAY",
-      "TSX",
-      "TXA",
-      "TXS"
-    ]
+    "related_instructions": ["TAX", "TAY", "TSX", "TXA", "TXS"]
   }
 ]
