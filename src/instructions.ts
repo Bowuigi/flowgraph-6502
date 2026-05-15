@@ -14,8 +14,8 @@ export const instructions: Record<string, Instruction> = {
   async jsr(state, args, _goto) {
     const primitive = H.expectLabel(args[0]);
     switch (primitive) {
-      case 'write_byte': return H.primWriteByte(state);
       case 'read_byte': return H.primReadByte(state);
+      case 'write_byte': return H.primWriteByte(state);
       case 'read_uint8': return await H.primReadUInt8(state);
       case 'write_uint8': return H.primWriteUInt8(state);
       default: throw new H.OperationUnsupported(`Unsupported primitive ${primitive}`);

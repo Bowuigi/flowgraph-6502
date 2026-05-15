@@ -51,8 +51,8 @@ _start:
 # Features and non-features
 
 - `jsr` only to call the following primitives:
-  - `.write_byte`: Outputs whatever is on register A to the console.
   - `.read_byte`: Reads a byte of user input and puts it into the A register. Sets the N and Z flags based on the input, and the C flag on EOF.
+  - `.write_byte`: Outputs whatever is on register A to the console.
   - `.read_uint8`: Reads an unsigned 8 bit integer from user input and puts it into the A register. Sets the N and Z flags based on the input, and the C flag on EOF or invalid number.
   - `.write_uint8`: Outputs whatever is on register A to the console as an 8-bit number.
 - Other supported instructions: `jmp`, `bcc`, `bcs`, `beq`, `bne`, `bpl`, `bmi`, `bvc`, `bvs`, `bit`, `and`, `eor`, `ora`, `asl`, `lsr`, `rol`, `ror`, `adc`, `sbc`, `cmp`, `cpx`, `cpy`, `inc`, `inx`, `iny`, `dec`, `dex`, `dey`, `lda`, `ldx`, `ldy`, `sta`, `stx`, `sty`, `tax`, `tay`, `txa`, `tya`, `clc`, `clv`, `sec`, `sev`, `nop`.
