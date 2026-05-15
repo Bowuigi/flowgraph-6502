@@ -35,7 +35,7 @@ export interface CPUState {
   /** Addressable using 16bit pointers */
   memory: Uint8Array;
   /** Fake memory location markers; this is not handled like in a normal assembler */
-  labels: Array<string>;
+  labels: Record<string, number>;
 }
 
 export interface Registers {
