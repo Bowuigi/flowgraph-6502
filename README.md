@@ -52,5 +52,5 @@ _start:
 
 - `jsr` only to call the following primitives:
   - `.write_byte`: Outputs whatever is on register A to the console.
-  - `.read_byte`: Reads a byte of user input and puts it into the A register.
-  - `.read_uint8`: 
+  - `.read_byte`: Reads a byte of user input and puts it into the A register. Sets the N and Z flags based on the input, and the C flag on EOF.
+  - `.read_uint8`: Reads an unsigned 8 bit integer from user input and puts it into the A register. Sets the N and Z flags based on the input, and the C flag on EOF.
