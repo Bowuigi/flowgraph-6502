@@ -1,0 +1,20 @@
+{
+  "name": "flowgraph-simple-6502",
+  "version": "0.1.0",
+  "description": "Generate a flowgraph for a subset of 6502 assembly",
+  "license": "BSD-3-Clause",
+  "author": "Bowuigi",
+  "type": "esm",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "codegen": "peggy --format es --output src/codegen/parser.js src/grammar.pegjs"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "peggy": "^5.1.0"
+  },
+  "dependencies": {
+    "elkjs-svg": "^0.2.1"
+  }
+}

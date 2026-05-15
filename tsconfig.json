@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexAccess": true,
+    "noUncheckedSideEffectImports": true,
+    "strictNullChecks": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "esModuleInterop": false,
+    "noFallthroughCasesInSwitch": true,
+    "target": "esnext",
+    "module": "nodenext",
+    "lib": [
+      "esnext"
+    ]
+  },
+  "include": [
+    "src/*"
+  ]
+}
