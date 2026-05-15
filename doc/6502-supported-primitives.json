@@ -1,0 +1,48 @@
+[
+  {
+    "label": "read_byte",
+    "reads": {},
+    "writes": {
+      "flags": {
+        "zero": "If the byte read was a NUL character",
+        "negative": "If the byte read was >127 (non-ASCII)",
+        "carry": "If EOF was found"
+      },
+      "registers": {
+        "accumulator": "Byte read from user input, 0 on EOF or NUL (use flags to distinguish them if required)"
+      }
+    }
+  },
+  {
+    "label": "write_byte",
+    "reads": {
+      "registers": {
+        "accumulator": "Byte to output"
+      }
+    },
+    "writes": {}
+  },
+  {
+    "label": "read_uint8",
+    "reads": {},
+    "writes": {
+      "flags": {
+        "zero": "If the number read was a NUL character",
+        "negative": "If the number read was >127",
+        "carry": "If EOF was found"
+      },
+      "registers": {
+        "accumulator": "Number read from user input, 0 if zero or EOF (use flags to distinguish them if required)"
+      }
+    }
+  },
+  {
+    "label": "write_uint8",
+    "reads": {
+      "registers": {
+        "accumulator": "Number to output as an 8-bit unsigned integer"
+      }
+    },
+    "writes": {}
+  }
+]

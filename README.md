@@ -13,13 +13,13 @@ Install dependencies with:
 Run the interpreter with:
 
 ```
-<js runtime> src/main.ts interpreter filename.s memory.bin
+<js runtime> src/main.ts run filename.s memory.bin
 ```
 
 Run the flow graph generator with:
 
 ```
-<js runtime> src/main.ts flowgraph filename.s output.svg
+<js runtime> src/main.ts graph filename.s output.svg
 ```
 
 The flow graph will be stored in `output.svg`. Statistics about such graphs will be printed to the terminal.
@@ -63,5 +63,6 @@ _start:
 - No self-modifying code
 - No macros
 - No interrupts or breakpoints
-- No decimal mode
-- No stack
+- No decimal mode (may be implemented later)
+- No stack (may be implemented later)
+- No indirect addressing (may be implemented later)
